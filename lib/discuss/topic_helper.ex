@@ -14,7 +14,7 @@ defmodule Discuss.Repo.Topic do
           updated_at: t.updated_at
         }
       )
-      |> Discuss.Repo.SoftDelete.with_soft_delete()
+      |> Discuss.Repo.SoftDelete.with_non_soft_delete()
 
     %{topics: Discuss.Repo.all(query), count: Discuss.Repo.aggregate(query, :count, :id)}
   end

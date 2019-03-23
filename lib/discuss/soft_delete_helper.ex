@@ -3,8 +3,8 @@ defmodule Discuss.Repo.SoftDelete do
 
   import Ecto.Query
 
-  def with_soft_delete(query) do
+  def with_non_soft_delete(query) do
     query
-    |> where([t], is_nil(t.deleted_at))
+    |> where([t], t.soft_deleted == false)
   end
 end

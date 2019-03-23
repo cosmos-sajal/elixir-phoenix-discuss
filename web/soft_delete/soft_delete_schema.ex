@@ -16,6 +16,7 @@ defmodule Discuss.SoftDelete.Schema do
   """
   defmacro soft_delete_schema do
     quote do
+      field(:soft_deleted, :boolean)
       field(:deleted_at, :utc_datetime)
     end
   end

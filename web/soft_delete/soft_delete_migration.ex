@@ -20,7 +20,12 @@ defmodule Discuss.SoftDelete.Migration do
         end
       end
   """
-  def soft_delete_columns do
+  def soft_delete_columns() do
     add(:deleted_at, :utc_datetime, [])
+    add(:soft_deleted, :boolean, default: false)
+  end
+
+  def create_index_on_soft_delete(table_name) do
+    create(index(table_name, [:soft_deleted]))
   end
 end
