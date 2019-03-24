@@ -5,11 +5,15 @@ elixir:
 
 addons:
   postgresql: '11.2'
+  apt:
+    packages:
+      - postgresql-11
 
 services:
   - postgresql
 
 before_script:
+  - psql --version
   - cp config/travis.exs config/test.exs
   - mix do ecto.create, ecto.migrate
 
