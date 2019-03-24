@@ -4,10 +4,7 @@ elixir:
   - 1.8.1
 
 addons:
-  postgresql: '11.2'
-  apt:
-    packages:
-      - postgresql-11
+  postgresql: '9.6'
 
 services:
   - postgresql
