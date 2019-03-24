@@ -13,7 +13,7 @@ config :logger, level: :warn
 config :discuss, Discuss.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
-  password: "",
+  password: "postgres",
   database: "discuss_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
