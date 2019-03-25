@@ -43,3 +43,16 @@ config :discuss, Discuss.Repo,
   pool_size: 10,
   log: true,
   timeout: 10000
+
+config :logger,
+  backends: [:console, {Logger.Backends.Gelf, :gelf_logger}]
+
+config :logger, :gelf_logger,
+  port: 2202,
+  application: "discuss",
+  compression: :raw,
+  metadata: [:request_id, :function, :module, :file, :line],
+  host: "<server_host>.logs.ovh.com",
+  tags: [
+    "X-OVH-TOKEN": "xxxxxxxx-x-x-x-xxx-xxx"
+  ]
