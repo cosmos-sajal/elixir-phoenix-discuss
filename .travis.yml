@@ -19,7 +19,6 @@ before_install:
 before_script:
   - psql --version
   - cp config/travis.exs config/test.exs
-  - rm config/dev.exs
   - cp config/travis.exs config/dev.exs
   - mix do ecto.create, ecto.migrate
 
